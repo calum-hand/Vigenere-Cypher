@@ -14,9 +14,9 @@ The user default file location and encryption terminator (see Encryption) are sp
 
 ### Encryption
 To encrypt a file, the user must specify the key word using the `-k` flag and also set the encrypt flag `-e`.
-````
+```bash
 $ python vigenere_cypher.py -k tesla -e
-````
+```
 ![](readme_images/encryption.PNG)
 The user can then save text to the file by typing into the prompt and pressing `return` to start a new line.
 each individual line in the terminal represents an individual line in the encrypted file.
@@ -29,9 +29,9 @@ The encryption terminator is NOT saved to the output file.
 
 ### Decryption
 As with encryption, here the user must pass the keyword originally used to encrypt the file `-k` and the decryption flag `-d`.
-````
+```bash
 $ python vigenere_cypher.py -k tesla -d
-````
+```
 ![](readme_images/decryption.PNG)
 Here the contents of the default file is read and decrypted using the passed keyword and then printed to the screen.
 An important note here is that since the entire file is decrypted using the singular keyword, it is not possible to encrypt different sections of the file with different keywords.
@@ -41,9 +41,9 @@ Another note is that this version does not currently support the encryption / de
 
 ### Using Alternate Files
 While only one default file location is saved in the `config.yml`, it is possible to pass a file location as an argument with the `-f` flag.
-````
+```bash
 $ python vigenere_cypher.py -k motor -e -f alternate_file.txt
-````
+```
 ![](readme_images/filelocation.PNG)
 If this file is to be decrypted later then the file location and keyword must be specified again unless the default file location is altered in the `config.yml`.
 
