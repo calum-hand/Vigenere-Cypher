@@ -1,5 +1,6 @@
 import yaml
 import argparse
+from getpass import getpass
 
 ########################################################################################################################
 
@@ -144,8 +145,10 @@ def main(args, config):
     :return: None
 
     """
-    key_phrase, filename = args.key.lower(), args.file  # user key to encrypt/decrypt
+    key_phrase = getpass('Enter Journal Keyword: ')
     assert key_phrase.isalpha(), 'Key word must not contain non alphabet characters'
+
+    filename = args.file
 
     encrypt_table, decrypt_table = table_generator()
 
@@ -164,7 +167,6 @@ if __name__ == '__main__':
         config = yaml.load(f)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-k', '--key', action='store', help='User key to encrypt and decrypt message')
     parser.add_argument('-f', '--file', action='store', default=config['File'], help='non default file path if desired')
     parser.add_argument('-e', '--encrypt', action='store_true', help='Include flag to write encrypted message to file')
     parser.add_argument('-d', '--decrypt', action='store_true', help='Include flag to read encrypted message from file')
